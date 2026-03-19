@@ -32,7 +32,7 @@ export interface MemoryState {
   gameOver: boolean;
 }
 
-export function initMemory(pairCount: number = 8): MemoryState {
+export function initMemory(pairCount: number = 12): MemoryState {
   const chosen = EMOJIS.slice(0, pairCount);
   const raw = [...chosen, ...chosen].map((emoji, i) => ({
     id: i,
