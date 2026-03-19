@@ -109,7 +109,7 @@ export default function UnoGame() {
     [broadcastState],
   );
 
-  const mp = useMultiplayer(handleMessage);
+  const mp = useMultiplayer("uno", handleMessage);
 
   // Keep sendRef in sync
   useEffect(() => {
@@ -205,10 +205,7 @@ export default function UnoGame() {
     if (roleRef.current === "host") {
       const gs = gameStateRef.current;
       if (!gs) return;
-      const newState = initializeGame([
-        gs.players[0].name,
-        gs.players[1].name,
-      ]);
+      const newState = initializeGame([gs.players[0].name, gs.players[1].name]);
       broadcastState(newState);
     } else {
       sendRef.current({ type: "restart" });
@@ -353,9 +350,7 @@ export default function UnoGame() {
             Cancel
           </button>
 
-          {mp.error && (
-            <p className="mt-4 text-red-400 text-sm">{mp.error}</p>
-          )}
+          {mp.error && <p className="mt-4 text-red-400 text-sm">{mp.error}</p>}
         </div>
       </div>
     );

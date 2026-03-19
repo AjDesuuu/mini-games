@@ -10,6 +10,33 @@ const games = [
     players: "2 Players",
     color: "from-red-500 to-yellow-500",
   },
+  {
+    id: "connect4",
+    name: "Connect 4",
+    description:
+      "Drop colored discs into a grid. First to get 4 in a row wins!",
+    emoji: "🔴",
+    players: "2 Players",
+    color: "from-red-500 to-blue-500",
+  },
+  {
+    id: "rps",
+    name: "Rock Paper Scissors",
+    description:
+      "Best of 5 showdown! Pick your weapon and outsmart your opponent.",
+    emoji: "✊",
+    players: "2 Players",
+    color: "from-orange-500 to-pink-500",
+  },
+  {
+    id: "memory",
+    name: "Memory Match",
+    description:
+      "Flip cards and find matching pairs. The player with the most pairs wins!",
+    emoji: "🧠",
+    players: "2 Players",
+    color: "from-cyan-500 to-purple-500",
+  },
 ];
 
 export default function Home() {

@@ -22,7 +22,10 @@ function generateRoomCode(): string {
   return code;
 }
 
-export function useMultiplayer(onMessage: (msg: unknown) => void) {
+export function useMultiplayer(
+  gameId: string,
+  onMessage: (msg: unknown) => void,
+) {
   const [status, setStatus] = useState<ConnectionStatus>("idle");
   const [roomCode, setRoomCode] = useState("");
   const [error, setError] = useState("");
@@ -55,7 +58,7 @@ export function useMultiplayer(onMessage: (msg: unknown) => void) {
 
       const { default: Peer } = await import("peerjs");
       const code = generateRoomCode();
-      const peerId = `minigame-uno-${code}`;
+      const peerId = `minigame-${gameId}-${code}`;
       const peer = new Peer(peerId);
       peerRef.current = peer;
 
@@ -102,7 +105,7 @@ export function useMultiplayer(onMessage: (msg: unknown) => void) {
       peerRef.current = peer;
 
       peer.on("open", () => {
-        const hostId = `minigame-uno-${code.toUpperCase()}`;
+        const hostId = `minigame-${gameId}-${code.toUpperCase()}`;
         const conn = peer.connect(hostId, { reliable: true });
         connRef.current = conn;
 
