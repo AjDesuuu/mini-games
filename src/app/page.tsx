@@ -37,6 +37,15 @@ const games = [
     players: "2 Players",
     color: "from-cyan-500 to-purple-500",
   },
+  {
+    id: "shooter",
+    name: "Target Shooter",
+    description:
+      "Targets pop up — shoot them before your opponent! First to 30 points wins.",
+    emoji: "🎯",
+    players: "2 Players",
+    color: "from-amber-500 to-red-500",
+  },
 ];
 
 export default function Home() {
